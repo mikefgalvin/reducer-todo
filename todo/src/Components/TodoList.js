@@ -63,17 +63,17 @@ const TodoList = () => {
 
     // ----------------Newer functions with reducers
 
-    const listItemAdd = () => {
-        dispatch(addTodo)
-    }
+    // const listItemAdd = () => {
+    //     dispatch(addTodo())
+    // }
 
-    const listCompletedItemRemove = () => {
-        dispatch(removeTodo())
-    }
+    // const listCompletedItemRemove = () => {
+    //     dispatch(removeTodo())
+    // }
 
-    const listItemToggle = () => {
+    // const listItemToggle = () => {
         
-    }
+    // }
 
 
 
@@ -84,8 +84,8 @@ const TodoList = () => {
     return (
         <div>
             <div>
-                <TodoForm listItemAdd={listItemAdd}/>
-                <button onClick={listCompletedItemRemove}>Clear Completed Tasks</button>
+                <TodoForm addTodo={addTodo} dispatch={dispatch}/>
+                <button>Clear Completed Tasks</button>
             </div>
             <div>
                 {

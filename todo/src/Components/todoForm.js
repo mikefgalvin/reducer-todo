@@ -11,7 +11,7 @@ const TodoForm = props => {
 
       const formSubmit = e => {
           e.preventDefault();
-          props.listItemAdd(inputValue);
+          props.dispatch(props.addTodo(inputValue));
           console.log('input value during submit', inputValue);
           setInputValue('')
         }

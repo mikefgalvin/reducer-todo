@@ -4,8 +4,12 @@ import React, { useReducer } from 'react';
 const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
 
-export const addTodo = (taskName) => {
-    return({type:ADD_TODO, payload: taskName});
+export const addTodo = taskName => {
+    console.log('action', taskName);
+    return{
+        type:ADD_TODO,
+        payload: taskName
+    };
 }
 
 export const removeTodo = (taskName) => {
@@ -32,7 +36,7 @@ const nextTodoId = (todos) => {
     return maxId + 1;
 }
 
-  function reducer(state, action) {
+  function reducer(state = initialState, action) {
     switch (action.type) {
       case ADD_TODO:
         return {
