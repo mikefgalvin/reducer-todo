@@ -3,17 +3,21 @@ import React, { useReducer } from 'react';
 
 const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
+const TOGGLE_TODO = 'TOGGLE_TODO'
 
 export const addTodo = taskName => {
-    console.log('action', taskName);
     return{
         type:ADD_TODO,
         payload: taskName
     };
 }
 
-export const removeTodo = (taskName) => {
-    return({type:REMOVE_TODO, payload:taskName});
+export const removeTodo = () => {
+    return{ type:REMOVE_TODO};
+}
+
+export const toggleTodo = (data) => {
+    return { type: TOGGLE_TODO, payload: data }
 }
 
 export const initialState = {
@@ -50,6 +54,25 @@ const nextTodoId = (todos) => {
                 }
             ]
         }
+      case TOGGLE_TODO:
+          return {
+              ...state, 
+              todo: state.todo.map((task) => {
+                  if (task.id === action.payload) {
+                      return {
+                          ...task,
+                          completed: !task.completed,
+                      };
+                  } else return task;
+              })
+          }
+        case REMOVE_TODO:
+            return {
+                ...state, 
+                todo: state.todo.filter(item => {
+                    return(!item.completed)
+                })
+            }
       default:
         return state
     }

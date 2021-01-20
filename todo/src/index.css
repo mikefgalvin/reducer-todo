@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.listItem.completed {
+  background-color: seagreen;
+  text-decoration: line-through;
+  border: 1px solid green;
+}
